@@ -164,7 +164,6 @@ private loadShops(): void {
 
 
   
-  // Convert degrees to radians (not needed anymore for Bing Maps API)
   private toRadians(degrees: number): number {
     return degrees * Math.PI / 180;
   }
