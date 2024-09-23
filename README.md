@@ -8,5 +8,3 @@ shop-track-backend, has express js code to send data between database and angula
 3. The api can be configured to take into account time or other extra points(eg: tolls) instead of distance if required. Api key is required to run that function.
 4. The sqlite also must be setup
 5. Location is requested from user for this application to work as intended
-
-Note: This is a personal project
