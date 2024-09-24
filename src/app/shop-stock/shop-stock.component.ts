@@ -164,6 +164,7 @@ private loadShops(): void {
 
 
   
+  
   private toRadians(degrees: number): number {
     return degrees * Math.PI / 180;
   }
@@ -179,13 +180,12 @@ private loadShops(): void {
     }
   }
 
-  // Display items
   private displayItems(searchValue: string): void {
     let w = 0;
-
+  
     this.shops.forEach(shop => {
       if (w === 5) return;
-
+  
       const machine = shop.data[searchValue];
       if (machine) {
         const demoElement = document.getElementById(`demo${w}`);
@@ -196,17 +196,58 @@ private loadShops(): void {
             <span>${shop.data.distance.toFixed(2)} km from here</span>
             <hr>
             <p style='color:purple;'>${searchValue} - ${machine}</p>
-            <a style='font-family:Comfortaa;' href='shop${shop.id + 1}.html' target='_self'>View all other products</a><br>
+            
+            <!-- Button to toggle details -->
+            <button 
+              id="toggleButton${shop.id}"
+              style='font-family:Comfortaa; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; cursor: pointer;'>
+              View All Other Products
+            </button>
+            <br>
+            
+            <!-- Div that will be toggled for shop details -->
+            <div id="details${shop.id}" style="display: none;">
+              <p><strong>Shop Details:</strong></p>
+              <ul>
+                ${Object.entries(shop.data).map(([key, value]) => {
+                  if (key !== "name") {
+                    return `<li>${key}: ${value}</li>`; // Create list items
+                  }
+                  return ''; // Skip the name
+                }).join('')}
+              </ul>
+            </div>
           `;
+  
+          // Bind the click event after the HTML is inserted
+          const button = document.getElementById(`toggleButton${shop.id}`);
+          if (button) {
+            button.addEventListener('click', () => this.toggleDetails(`details${shop.id}`));
+          }
           w++;
         }
       }
     });
-
+  
     if (document.getElementById("demo0")?.innerHTML === '') {
       document.getElementById("demo0")!.innerHTML = "Oops product not available / try again";
     }
   }
+  
+  private toggleDetails(detailsId: string) {
+    const detailsDiv = document.getElementById(detailsId);
+    if (detailsDiv) {
+      // Toggle display property
+      if (detailsDiv.style.display === "none") {
+        detailsDiv.style.display = "block"; // Show details
+      } else {
+        detailsDiv.style.display = "none"; // Hide details
+      }
+    }
+  }
+  
+  
+
   reloadPage(): void {
     window.location.reload();
   }
