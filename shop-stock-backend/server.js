@@ -44,7 +44,15 @@ app.get('/api/shops/:id', (req, res) => {
     res.json(row);
   });
 });
+// Route to serve privacy.html
+app.get('/privacy', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'privacy.html'));
+});
 
+// Route to serve terms.html
+app.get('/terms', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'terms.html'));
+});
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
