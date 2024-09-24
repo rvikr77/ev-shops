@@ -11,3 +11,4 @@ shop-track-backend, has express js code to send data between database and angula
 5. Location is requested from user for this application to work as intended
 6. Also shops given are just for testing and are not real shops with real values. It's just a simulation to test the application with random latitude and longitude values.
 7. Note: Bing Maps API and its usage is subject to Microsoft's copyright and other policies.
+8. made use of some images placed in public/assets/images folder
