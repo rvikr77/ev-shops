@@ -11,5 +11,5 @@ Utilized JSON mock data and conducted user testing sessions to enhance functiona
 4. The sqlite also must be setup, and also by running init db file
 5. Location is requested from user for this application to work as intended
 6. Also shops given are just for testing and are not real shops with real values. It's just a simulation to test the application with random latitude and longitude values.
-7. Note: Bing Maps API and its usage is subject to Microsoft's copyright and other policies.
+7. Note: Bing Maps API and its usage is subject to Microsoft's copyright and other policies. This is a personal project(non-commercial). Check out: https://www.microsoft.com/en-us/maps/bing-maps/product . Follow these policies along with the data storage/ retention policies.
 8. made use of some images placed in public/assets/images folder 
